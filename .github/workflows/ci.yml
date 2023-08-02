@@ -1,17 +1,25 @@
+name: Continuous Integration
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: composer install
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
 
-    - name: Run tests
-      run: vendor/bin/phpunit
+      - name: Install Composer dependencies
+        run: composer install
+
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit
