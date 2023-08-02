@@ -20,13 +20,13 @@ class CalculatorTest extends TestCase
     public function testMultiply()
     {
         $result = Calculator::multiply(4, 3);
-        $this->assertEquals(7, $result);
+        $this->assertEquals(12, $result);
     }
 
     public function testDivide()
     {
         $result = Calculator::divide(10, 2);
-        $this->assertEquals(5, $result);
+        $this->assertEquals(12, $result);
     }
 
     public function testDivideByZero()
